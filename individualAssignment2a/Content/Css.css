@@ -1,0 +1,39 @@
+﻿body {
+}
+.qty{
+    width:30px;
+}
+/* end Search Box Styles */
+
+footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 15px;
+    right: 0;
+    position:fixed;
+}
+
+    footer p {
+        margin: 0;
+        padding-top: 10px;
+        font-size: 0.9em;
+    }
+
+    footer > a {
+        color: white;
+        padding: 10px 15px;
+    }
+
+/*.jumbotron {
+    text-align: center;
+    background-repeat: no-repeat;
+    background-image: url('../Image/sport.jpg');
+    background-size: cover;
+    height: 313px;
+    font-size: 2em;
+}*/

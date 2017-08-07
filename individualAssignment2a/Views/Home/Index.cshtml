@@ -1,0 +1,43 @@
+﻿@model IEnumerable<individualAssignment2a.View_Model.ProductVM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@{
+    int i = 1;
+}
+
+
+<table class="table">
+    
+@foreach (var item in Model) {
+  
+    <tr>
+
+        <td>
+            @Html.ActionLink("Add to cart", "Add", new { id=item.ProductID }) 
+           
+        </td>
+
+        <td>
+            @Html.Raw("#")
+            @Html.DisplayFor(modelItem => item.ProductID)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)           
+            <img src="~/Image/image0@(i).png" height="60" width="60" />
+        </td>
+        <td>
+            @Html.Raw("$")
+            @Html.DisplayFor(modelItem => item.Price)
+           
+        </td>
+       
+       
+    </tr>
+   i++;
+}
+
+</table>

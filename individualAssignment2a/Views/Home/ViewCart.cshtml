@@ -1,0 +1,83 @@
+﻿@model IEnumerable<individualAssignment2a.View_Model.ProductVisitVM>
+
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<script src="~/scripts/angular.js"></script>
+<div class="container">
+    <table class="table">
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.ActionLink("Remove", "Remove", new { id = item.ProductID })
+                </td>
+
+                <td>
+                    #@Html.DisplayFor(modelItem => item.ProductID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.TextBoxFor(modelItem => item.QtyOrdered, new { @class = "qty"})
+                </td>
+
+                <td>
+                    $@Decimal.Round(item.Price * item.QtyOrdered, 2)
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div style="text-align:right">
+                Sub-total &nbsp;$@ViewBag.Subtotal
+            </div>
+            <br />
+            <div style="text-align:right">
+                <u> +7% Tax&nbsp;$@ViewBag.Tax</u>
+            </div>
+            <br />
+            <div style="text-align:right">
+                Total Price:&nbsp;$@ViewBag.Total
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="get" action="/Home/Thankyou">
+    <div>
+        <input type="submit" class="btn btn-primary" value="Go to Checkout" style="width:120px;height:40px;margin-left:10px;"/>
+    </div>
+</form>
+
+
+<br />
+<form method="get" action="/Home/Thankyou">
+    <div>
+        <input type="submit" class="btn btn-primary" value="Save Order" style="width:120px;height:40px;margin-left:10px;"/>
+    </div>
+</form>
+
+
+<br />
+<form method="get" action="/Home/Cancel">
+    <div>
+        <input type="submit" class="btn btn-primary" value="Cancel Order" style="width:120px;height:40px;margin-left:10px;"/>
+    </div>
+</form>
+
+
